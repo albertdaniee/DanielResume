@@ -1,111 +1,350 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tigers37 Blog</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f4f6f9;
-      color: #333;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jayaraj Daniel Albert Sundararaj | Cloud & AI Architect</title>
+<style>
+  :root{
+    --c1:#ff5f6d; --c2:#ffc371; --c3:#7c3aed; --c4:#06b6d4; --c5:#22c55e;
+  }
+  * { box-sizing: border-box; margin:0; padding:0; font-family:"Courier New", Courier, monospace; font-size:12pt; }
 
-    header {
-      background: #1f2937;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
+  body{
+    min-height:100vh;
+    color:#fff;
+    background: linear-gradient(-45deg, var(--c1), var(--c2), var(--c3), var(--c4), var(--c5));
+    background-size: 400% 400%;
+    animation: gradientShift 18s ease infinite;
+  }
+  @keyframes gradientShift{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+  }
 
-    header h1 {
-      margin: 0;
-      font-size: 28px;
-    }
+  header{
+    text-align:center;
+    padding:60px 20px 30px;
+    animation: fadeDown 1s ease-out;
+  }
+  @keyframes fadeDown{
+    from{opacity:0; transform:translateY(-30px);}
+    to{opacity:1; transform:translateY(0);}
+  }
+  header h1{
+    font-size:28pt;
+    text-shadow:2px 2px 8px rgba(0,0,0,.4);
+    letter-spacing:2px;
+  }
+  header h2{
+    font-size:14pt;
+    margin-top:10px;
+    font-weight:normal;
+    color:#fff7d6;
+    animation: pulse 3s ease-in-out infinite;
+  }
+  @keyframes pulse{
+    0%,100%{opacity:.7}
+    50%{opacity:1}
+  }
+  .contact{
+    margin-top:15px;
+    font-size:11pt;
+  }
+  .contact a{ color:#fff; text-decoration:underline; }
 
-    nav {
-      background: #111827;
-      padding: 10px;
-      text-align: center;
-    }
+  nav{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+    padding:15px;
+    position:sticky;
+    top:0;
+    background:rgba(0,0,0,0.25);
+    backdrop-filter:blur(6px);
+    z-index:10;
+  }
+  nav a{
+    color:#fff;
+    text-decoration:none;
+    padding:8px 16px;
+    border:2px solid #fff;
+    border-radius:30px;
+    transition: all .3s ease;
+  }
+  nav a:hover{
+    background:#fff;
+    color:#7c3aed;
+    transform: scale(1.1) rotate(-2deg);
+  }
 
-    nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-    }
+  main{
+    max-width:960px;
+    margin:0 auto;
+    padding:30px 20px 80px;
+  }
 
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
-    }
+  .card{
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius:14px;
+    padding:25px;
+    margin-bottom:25px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    opacity:0;
+    transform: translateY(40px);
+    animation: riseIn .8s ease-out forwards;
+  }
+  .card:nth-child(1){animation-delay:.1s}
+  .card:nth-child(2){animation-delay:.25s}
+  .card:nth-child(3){animation-delay:.4s}
+  .card:nth-child(4){animation-delay:.55s}
+  .card:nth-child(5){animation-delay:.7s}
+  .card:nth-child(6){animation-delay:.85s}
 
-    .post-card {
-      background: white;
-      padding: 20px;
-      margin-bottom: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
+  @keyframes riseIn{
+    to{ opacity:1; transform:translateY(0); }
+  }
 
-    .post-card h2 {
-      margin-top: 0;
-    }
+  .card h3{
+    font-size:16pt;
+    margin-bottom:12px;
+    border-bottom:2px dashed rgba(255,255,255,0.5);
+    padding-bottom:6px;
+    color:#fffbe6;
+  }
 
-    .btn {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 8px 12px;
-      background: #2563eb;
-      color: white;
-      border-radius: 5px;
-      text-decoration: none;
-    }
+  .card ul{ list-style:none; }
+  .card li{
+    margin:8px 0;
+    padding-left:22px;
+    position:relative;
+  }
+  .card li::before{
+    content:"▹";
+    position:absolute;
+    left:0;
+    color:#ffe066;
+    animation: spin 4s linear infinite;
+    display:inline-block;
+  }
+  @keyframes spin{
+    from{transform:rotate(0deg)}
+    to{transform:rotate(360deg)}
+  }
 
-    footer {
-      text-align: center;
-      padding: 15px;
-      background: #1f2937;
-      color: white;
-      margin-top: 30px;
-    }
-  </style>
+  .badge-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:10px;
+  }
+  .badge{
+    padding:6px 14px;
+    border-radius:20px;
+    font-size:10pt;
+    color:#1e1b2e;
+    font-weight:bold;
+    animation: colorCycle 6s linear infinite;
+  }
+  @keyframes colorCycle{
+    0%{background:var(--c1)}
+    25%{background:var(--c2)}
+    50%{background:var(--c4)}
+    75%{background:var(--c5)}
+    100%{background:var(--c1)}
+  }
+  .badge:nth-child(2n){ animation-delay:1.5s }
+  .badge:nth-child(3n){ animation-delay:3s }
+
+  .job-title{ font-weight:bold; font-size:13pt; color:#fff; }
+  .job-dates{ color:#ffe066; font-weight:bold; }
+  .job-block{ margin-bottom:18px; }
+
+  table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:10px;
+  }
+  td, th{
+    border:1px solid rgba(255,255,255,0.4);
+    padding:8px;
+    text-align:left;
+    font-size:10.5pt;
+  }
+  th{ background:rgba(255,255,255,0.2); }
+  tr:nth-child(even){ background:rgba(255,255,255,0.08); }
+
+  footer{
+    text-align:center;
+    padding:25px;
+    font-size:10pt;
+    color:#fff;
+    background:rgba(0,0,0,0.25);
+  }
+
+  .float-shape{
+    position:fixed;
+    border-radius:50%;
+    opacity:0.25;
+    filter:blur(2px);
+    z-index:-1;
+    animation: floaty 12s ease-in-out infinite;
+  }
+  @keyframes floaty{
+    0%,100%{ transform: translateY(0) translateX(0); }
+    50%{ transform: translateY(-40px) translateX(30px); }
+  }
+  .s1{ width:180px; height:180px; background:var(--c1); top:10%; left:5%; }
+  .s2{ width:240px; height:240px; background:var(--c4); top:60%; right:8%; animation-delay:2s; }
+  .s3{ width:140px; height:140px; background:var(--c5); bottom:5%; left:30%; animation-delay:4s; }
+  .s4{ width:200px; height:200px; background:var(--c2); top:30%; right:30%; animation-delay:1s; }
+</style>
 </head>
-
 <body>
 
+<div class="float-shape s1"></div>
+<div class="float-shape s2"></div>
+<div class="float-shape s3"></div>
+<div class="float-shape s4"></div>
+
 <header>
-  <h1>Tigers37 Blog</h1>
-  <p>Thoughts, Stories & Ideas</p>
+  <h1>JAYARAJ DANIEL ALBERT SUNDARARAJ</h1>
+  <h2>Cloud / Data Warehouse, AI Agent &amp; ML Architect</h2>
+  <div class="contact">
+    <a href="mailto:albertdaniee@gmail.com">albertdaniee@gmail.com</a> &nbsp;|&nbsp;
+    +1 647 674 1069 &nbsp;|&nbsp;
+    <a href="https://github.com/albertdaniee" target="_blank">github.com/albertdaniee</a>
+  </div>
 </header>
 
 <nav>
-  <a href="#">Home</a>
-  <a href="#">About</a>
-  <a href="#">Posts</a>
-  <a href="#">Contact</a>
+  <a href="#summary">Summary</a>
+  <a href="#ai">AI / LLM</a>
+  <a href="#cloud">Cloud &amp; DWH</a>
+  <a href="#experience">Experience</a>
+  <a href="#skills">Skills</a>
+  <a href="#education">Education</a>
 </nav>
 
-<div class="container">
+<main>
 
-  <div class="post-card">
-    <h2>My First Blog Redesign</h2>
-    <p>A clean, modern version of my old Blogger post redesigned for GitHub Pages.</p>
-    <a class="btn" href="post.html">Read More</a>
-  </div>
+  <section class="card" id="summary">
+    <h3>Profile Summary</h3>
+    <p>Azure, AWS &amp; Google Cloud, Business Intelligence and Python specialist with deep expertise in Data Warehousing (Integration, Analysis, Reporting, SQL). Skilled in Data Modeling (OLTP &amp; OLAP), ETL development, multi-dimensional &amp; tabular implementations, and dashboarding. Specialized in Data Mining &amp; ML (Linear/Logistic Regression, Naive Bayes prediction). Healthcare EDI specialist (HIPAA-compliant). Expertise in AML processes (KYC, SAR, PEP) and Guidewire Policy/Billing/Claims integrations.</p>
+    <div class="badge-row">
+      <span class="badge">DP-203</span>
+      <span class="badge">AZ-204</span>
+      <span class="badge">AZ-900</span>
+      <span class="badge">DP-900</span>
+      <span class="badge">Snowflake</span>
+      <span class="badge">Redshift</span>
+      <span class="badge">AML</span>
+      <span class="badge">HIPAA EDI</span>
+    </div>
+  </section>
 
-  <div class="post-card">
-    <h2>Random Thoughts 2021</h2>
-    <p>Life reflections and daily experiences shared in simple words.</p>
-    <a class="btn" href="post2.html">Read More</a>
-  </div>
+  <section class="card" id="ai">
+    <h3>AI / LLM &amp; Vector Database Engineering</h3>
+    <ul>
+      <li>Designed and implemented a robust Vector DB pipeline leveraging Chroma and Pinecone DB for LLM-driven search and retrieval over dynamic business data.</li>
+      <li>Built modular Python classes/functions to process structured &amp; semi-structured data (SQL Server, CSV, Excel, PDF via PyPDF, Parquet, Delta) into embeddings using Sentence Transformers.</li>
+      <li>Built ETL workflows to parse, embed, and incrementally load daily data into the vector DB.</li>
+      <li>Integrated LangChain to orchestrate query flows, retrieving relevant vectors before generating answers - minimizing hallucinations.</li>
+      <li>Leveraged AI-driven automation with AI Builder, Generative App, Power Automate &amp; Power Apps using Copilot.</li>
+    </ul>
+  </section>
 
-</div>
+  <section class="card" id="cloud">
+    <h3>Cloud, Data Warehouse &amp; Architecture Expertise</h3>
+    <ul>
+      <li>Transitioned into an AI, ML, Cloud &amp; DWH Architect role from BI Lead (Azure, Databricks, Snowflake).</li>
+      <li>Azure security: Managed Identity (MSI), Service Principal (SPN), Key Vault, RBAC.</li>
+      <li>COPY INTO for Delta Lake → Snowflake; connections via Azure Key Vault.</li>
+      <li>SCD Type 1 &amp; 2 CRUD operations; SQL Server ↔ Snowflake transfers via ADF &amp; Data Lake.</li>
+      <li>Snowflake pipelines (CREATE PIPE); S3 → Redshift extraction &amp; UNLOAD to encrypted S3.</li>
+      <li>Azure Synapse: dedicated SQL pool CRUD, Spark (C#, Python, Spark SQL) notebooks, dataflow transformations.</li>
+      <li>Deployed forecasts to Delta Gold layer for weekly planning dashboards across 5 restaurant chains.</li>
+    </ul>
+  </section>
+
+  <section class="card" id="experience">
+    <h3>Professional Experience</h3>
+
+    <div class="job-block">
+      <div class="job-title">IMCO - Power Automation &amp; Power Apps</div>
+      <div class="job-dates">Mar 2025 - Present</div>
+      <ul>
+        <li>Built business workflows using Power Automate, reducing manual effort.</li>
+        <li>Automated workflows integrating Power Apps, SharePoint &amp; Dataverse.</li>
+        <li>Cloud flows: SharePoint CSV → Dataverse tables; Azure SQL &amp; Blob Storage integration.</li>
+        <li>Error-handling frameworks (Scope, Try-Catch) with Outlook alerts; scheduled/event-driven ETL triggers.</li>
+      </ul>
+    </div>
+
+    <div class="job-block">
+      <div class="job-title">IMCO - Synapse to Databricks Migration</div>
+      <div class="job-dates">Mar 2024 - Mar 2025</div>
+      <ul>
+        <li>Performance tuning: Partition By, Cluster By, Z-Order, Liquid Clustering.</li>
+        <li>Delta Live Tables, Unity Catalog, Medallion Architecture (Bronze/Silver/Gold), SCD &amp; CDC.</li>
+        <li>PySpark/Spark SQL ETL across Parquet, Delta, Iceberg, CSV, JSON.</li>
+      </ul>
+    </div>
+
+    <div class="job-block">
+      <div class="job-title">Inspire Brands (Cognizant Technologies) - Databricks, Snowflake, ADF</div>
+      <div class="job-dates">Jun 2022 - Mar 2024</div>
+      <ul>
+        <li>PySpark/Spark SQL ETL across Bronze/Silver/Gold Delta Lake.</li>
+        <li>Migrated Teradata stored procedures/views/tables to Snowflake.</li>
+        <li>Terraform IaC for Databricks integrated into Azure DevOps CI/CD; Jenkins + Git + Maven + Docker + Kubernetes.</li>
+      </ul>
+    </div>
+
+    <div class="job-block">
+      <div class="job-title">Earlier Career</div>
+      <ul>
+        <li>CIBC, ON - US Wealth Management System (May 2020 - Jun 2022)</li>
+        <li>Bank of Montreal, Toronto - Personal &amp; Commercial (Nov 2018 - May 2020)</li>
+        <li>Berkeley Payment, Toronto - DWH System (Aug 2018 - Oct 2018)</li>
+        <li>Wells Fargo Technologies, India - Investment Performance &amp; Banking DWH (Jan 2014 - Jun 2018)</li>
+        <li>Daktronics - BI Architect (Apr 2012 - Dec 2013)</li>
+        <li>Polaris Software Labs - BI Developer, Global Data Mining (Apr 2010 - Mar 2012)</li>
+        <li>LNT InfoTech / Travelers - BI Developer (Aug 2008 - Apr 2010)</li>
+        <li>Devington Technologies - Medical Billing EDI (May 2003 - Aug 2008)</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="card" id="skills">
+    <h3>Technical Skills</h3>
+    <table>
+      <tr><th>Category</th><th>Tools</th></tr>
+      <tr><td>RDBMS/ETL/Analysis</td><td>SQL Server, Teradata, SSIS, SSAS, ADF, AWS Glue, Kafka</td></tr>
+      <tr><td>Reporting</td><td>SSRS, Qlikview 11, Qlik Sense, Power BI, Tableau, OBIEE</td></tr>
+      <tr><td>Cloud</td><td>Azure, AWS, GCP, Databricks, Snowflake, Synapse, Azure SQL, Aurora DB</td></tr>
+      <tr><td>Programming &amp; GUI</td><td>ASP.NET, C#, Python, JScript, PySpark, BizTalk, Lambda</td></tr>
+      <tr><td>Schedulers</td><td>Autosys, SQL Agent, Azure WebJobs, CRON, Airflow</td></tr>
+      <tr><td>CI/CD</td><td>GIT, GitHub Actions, Maven, JFrog, Terraform, Jenkins</td></tr>
+      <tr><td>Health Care</td><td>HIPAA 270/271, 276/277, 837/835</td></tr>
+      <tr><td>Vector DB</td><td>Chroma, Pinecone, Milvus, Weaviate</td></tr>
+      <tr><td>Frameworks</td><td>RAG (LangChain, LlamaIndex), Hugging Face Transformers</td></tr>
+    </table>
+  </section>
+
+  <section class="card" id="education">
+    <h3>Education</h3>
+    <p>B.E. Computer Science &amp; Engineering - C.A.C.H.E.T, Madras University (1999-2003), Second Class (66%)</p>
+  </section>
+
+</main>
 
 <footer>
-  © 2026 Tigers37 Blog | Built with GitHub Pages
+  &copy; 2026 Jayaraj Daniel Albert Sundararaj — Built as a static animated portfolio site
 </footer>
 
 </body>
